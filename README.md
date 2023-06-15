@@ -36,6 +36,5 @@ Pour exécuter l'application, suivez les étapes ci-dessous :
 
 1. Assurez-vous que vous avez Python 3.x installé sur votre machine.
 2. Naviguez vers le dossier `back` : `cd back`.
-3. Installez les dépendances : `pip3 install -r requirements.txt`.
-4. Démarrez l'API backend : `uvicorn main:app --reload`.
-5. L'API sera accessible à l'adresse `http://localhost:8000`
+3. Démarrez l'API backend : `poetry run uvicorn src.main:app --reload`.
+4. L'API sera accessible à l'adresse `http://localhost:8000`

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "orderingappback"
+version = "0.1.0"
+description = ""
+authors = ["Théo Laperrouse <theolaperrouse@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.97.0"
+sqlalchemy = "^2.0.16"
+pydantic = "^1.10.9"
+uvicorn = "^0.22.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
