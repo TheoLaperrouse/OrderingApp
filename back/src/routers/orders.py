@@ -1,8 +1,6 @@
 from fastapi import APIRouter
-from fastapi.encoders import jsonable_encoder
-from src.routers.drinks import Drink
 from pydantic import BaseModel
-import json
+from src.routers.drinks import Drink
 
 router = APIRouter(
     prefix="/orders",
