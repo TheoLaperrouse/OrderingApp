@@ -28,10 +28,10 @@ export default defineComponent({
     },
     setup() {
         const drinks = ref([
-            { id: 1, name: 'Margarita', quantity: 0 },
-            { id: 2, name: 'Cosmopolitan', quantity: 0 },
-            { id: 3, name: 'Gimlet', quantity: 0 },
-            { id: 4, name: 'Manhattan', quantity: 0 },
+            { id: 1, name: 'Margarita', quantity: 0, price: 5 },
+            { id: 2, name: 'Cosmopolitan', quantity: 0, price: 10 },
+            { id: 3, name: 'Gimlet', quantity: 0, price: 8 },
+            { id: 4, name: 'Manhattan', quantity: 0, price: 7 },
         ]);
 
         const updateQuantity = (updatedDrink) => {
@@ -50,11 +50,20 @@ export default defineComponent({
         filteredDrinks() {
             return this.drinks.filter((drink) => drink.quantity > 0);
         },
+        totalPrice() {
+            return this.filteredDrinks.reduce((accumulator, drink) => accumulator + drink.price * drink.quantity, 0);
+        },
     },
     methods: {
         sendOrder() {
-            const formattedOrder = this.filteredDrinks.map((drink) => `${drink.name} : ${drink.quantity}`);
-            this.$swal(`Commande bien envoyée \n\n ${formattedOrder.join('\n')}`);
+            const formattedOrder = this.filteredDrinks.map(
+                (drink) => `${drink.name} : ${drink.quantity} -> ${drink.name * drink.quantity} €`,
+            );
+            this.$swal(`Commande bien envoyée \n\n ${formattedOrder.join('\n')}\n\n Prix Total : ${this.totalPrice} €`);
+            this.drinks = this.drinks.map((value) => ({
+                ...value,
+                quantity: 0,
+            }));
         },
     },
 });
