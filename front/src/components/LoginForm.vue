@@ -29,8 +29,9 @@
 
 <script>
 import { ref } from 'vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     setup() {
         const username = ref('');
         const password = ref('');
@@ -43,7 +44,5 @@ export default {
             login,
         };
     },
-};
+});
 </script>
-
-<style></style>

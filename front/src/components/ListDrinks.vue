@@ -20,15 +20,18 @@
 <script>
 import { ref } from 'vue';
 import DrinkCard from './DrinkCard.vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     components: {
         DrinkCard,
     },
     setup() {
         const drinks = ref([
-            { id: 1, name: 'Drink 1', quantity: 0 },
-            { id: 2, name: 'Drink 2', quantity: 0 },
+            { id: 1, name: 'Margarita', quantity: 0 },
+            { id: 2, name: 'Cosmopolitan', quantity: 0 },
+            { id: 3, name: 'Gimlet', quantity: 0 },
+            { id: 4, name: 'Manhattan', quantity: 0 },
         ]);
 
         const updateQuantity = (updatedDrink) => {
@@ -51,8 +54,8 @@ export default {
     methods: {
         sendOrder() {
             const formattedOrder = this.filteredDrinks.map((drink) => `${drink.name} : ${drink.quantity}`);
-            this.$swal(`Commande bien envoyée :\n ${formattedOrder.join('\n')}`);
+            this.$swal(`Commande bien envoyée \n\n ${formattedOrder.join('\n')}`);
         },
     },
-};
+});
 </script>
